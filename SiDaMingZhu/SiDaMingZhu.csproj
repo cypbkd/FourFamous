@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A6D1530E-0802-418A-8FB4-A6F52965FD54}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SiDaMingZhu</RootNamespace>
+    <AssemblyName>SiDaMingZhu</AssemblyName>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>v4.0</SilverlightVersion>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>SiDaMingZhu.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>SiDaMingZhu.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Coding4Fun.Phone.Controls">
+      <HintPath>..\..\..\Library\Code4Fun\Coding4Fun.Phone.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WP71, Version=4.0.23.35541, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GalaSoft.MvvmLight.WP71, Version=4.0.23.35541, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Drawing" />
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls" />
+    <Reference Include="Microsoft.Phone.Controls.Maps" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604">
+      <HintPath>..\..\Silverlight Tookit\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\..\..\Library\Prism\Bin\Phone\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib.Extensions" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Servicemodel" />
+    <Reference Include="System.Servicemodel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Interactivity" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BookDetailPage.xaml.cs">
+      <DependentUpon>BookDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\ChapterNameConverter.cs" />
+    <Compile Include="Converters\DateTimeConverter.cs" />
+    <Compile Include="Converters\ChapterIdToNameConverter.cs" />
+    <Compile Include="Converters\BookImageConverter.cs" />
+    <Compile Include="Converters\SubStringConverter.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookMark.cs" />
+    <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Services\Configs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadPage.xaml.cs">
+      <DependentUpon>ReadPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\MoreDataSource\MoreDataSource.xaml.cs">
+      <DependentUpon>MoreDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\JsonDataStore.cs" />
+    <Compile Include="Services\IDataStore.cs" />
+    <Compile Include="SettingPage.xaml.cs">
+      <DependentUpon>SettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BookDetailViewModel.cs" />
+    <Compile Include="ViewModels\BookViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ReadPageViewModel.cs" />
+    <Compile Include="ViewModels\MoreViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="AboutPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BookDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReadPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\MoreDataSource\MoreDataSource.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <DesignTimeOnly Include="SampleData\MoreDataSource\MoreDataSource.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Datas\HongLouMeng.jpg" />
+    <Content Include="Datas\HongLouMeng.xml" />
+    <Content Include="Datas\HongLouMeng\001.txt" />
+    <Content Include="Datas\HongLouMeng\002.txt" />
+    <Content Include="Datas\HongLouMeng\003.txt" />
+    <Content Include="Datas\HongLouMeng\004.txt" />
+    <Content Include="Datas\HongLouMeng\005.txt" />
+    <Content Include="Datas\HongLouMeng\006.txt" />
+    <Content Include="Datas\HongLouMeng\007.txt" />
+    <Content Include="Datas\HongLouMeng\008.txt" />
+    <Content Include="Datas\HongLouMeng\009.txt" />
+    <Content Include="Datas\HongLouMeng\010.txt" />
+    <Content Include="Datas\HongLouMeng\011.txt" />
+    <Content Include="Datas\HongLouMeng\012.txt" />
+    <Content Include="Datas\HongLouMeng\013.txt" />
+    <Content Include="Datas\HongLouMeng\014.txt" />
+    <Content Include="Datas\HongLouMeng\015.txt" />
+    <Content Include="Datas\HongLouMeng\016.txt" />
+    <Content Include="Datas\HongLouMeng\017.txt" />
+    <Content Include="Datas\HongLouMeng\018.txt" />
+    <Content Include="Datas\HongLouMeng\019.txt" />
+    <Content Include="Datas\HongLouMeng\020.txt" />
+    <Content Include="Datas\HongLouMeng\021.txt" />
+    <Content Include="Datas\HongLouMeng\022.txt" />
+    <Content Include="Datas\HongLouMeng\023.txt" />
+    <Content Include="Datas\HongLouMeng\024.txt" />
+    <Content Include="Datas\HongLouMeng\025.txt" />
+    <Content Include="Datas\HongLouMeng\026.txt" />
+    <Content Include="Datas\HongLouMeng\027.txt" />
+    <Content Include="Datas\HongLouMeng\028.txt" />
+    <Content Include="Datas\HongLouMeng\029.txt" />
+    <Content Include="Datas\HongLouMeng\030.txt" />
+    <Content Include="Datas\HongLouMeng\031.txt" />
+    <Content Include="Datas\HongLouMeng\032.txt" />
+    <Content Include="Datas\HongLouMeng\033.txt" />
+    <Content Include="Datas\HongLouMeng\034.txt" />
+    <Content Include="Datas\HongLouMeng\035.txt" />
+    <Content Include="Datas\HongLouMeng\036.txt" />
+    <Content Include="Datas\HongLouMeng\037.txt" />
+    <Content Include="Datas\HongLouMeng\038.txt" />
+    <Content Include="Datas\HongLouMeng\039.txt" />
+    <Content Include="Datas\HongLouMeng\040.txt" />
+    <Content Include="Datas\HongLouMeng\041.txt" />
+    <Content Include="Datas\HongLouMeng\042.txt" />
+    <Content Include="Datas\HongLouMeng\043.txt" />
+    <Content Include="Datas\HongLouMeng\044.txt" />
+    <Content Include="Datas\HongLouMeng\045.txt" />
+    <Content Include="Datas\HongLouMeng\046.txt" />
+    <Content Include="Datas\HongLouMeng\047.txt" />
+    <Content Include="Datas\HongLouMeng\048.txt" />
+    <Content Include="Datas\HongLouMeng\049.txt" />
+    <Content Include="Datas\HongLouMeng\050.txt" />
+    <Content Include="Datas\HongLouMeng\051.txt" />
+    <Content Include="Datas\HongLouMeng\052.txt" />
+    <Content Include="Datas\HongLouMeng\053.txt" />
+    <Content Include="Datas\HongLouMeng\054.txt" />
+    <Content Include="Datas\HongLouMeng\055.txt" />
+    <Content Include="Datas\HongLouMeng\056.txt" />
+    <Content Include="Datas\HongLouMeng\057.txt" />
+    <Content Include="Datas\HongLouMeng\058.txt" />
+    <Content Include="Datas\HongLouMeng\059.txt" />
+    <Content Include="Datas\HongLouMeng\060.txt" />
+    <Content Include="Datas\HongLouMeng\061.txt" />
+    <Content Include="Datas\HongLouMeng\062.txt" />
+    <Content Include="Datas\HongLouMeng\063.txt" />
+    <Content Include="Datas\HongLouMeng\064.txt" />
+    <Content Include="Datas\HongLouMeng\065.txt" />
+    <Content Include="Datas\HongLouMeng\066.txt" />
+    <Content Include="Datas\HongLouMeng\067.txt" />
+    <Content Include="Datas\HongLouMeng\068.txt" />
+    <Content Include="Datas\HongLouMeng\069.txt" />
+    <Content Include="Datas\HongLouMeng\070.txt" />
+    <Content Include="Datas\HongLouMeng\071.txt" />
+    <Content Include="Datas\HongLouMeng\072.txt" />
+    <Content Include="Datas\HongLouMeng\073.txt" />
+    <Content Include="Datas\HongLouMeng\074.txt" />
+    <Content Include="Datas\HongLouMeng\075.txt" />
+    <Content Include="Datas\HongLouMeng\076.txt" />
+    <Content Include="Datas\HongLouMeng\077.txt" />
+    <Content Include="Datas\HongLouMeng\078.txt" />
+    <Content Include="Datas\HongLouMeng\079.txt" />
+    <Content Include="Datas\HongLouMeng\080.txt" />
+    <Content Include="Datas\HongLouMeng\081.txt" />
+    <Content Include="Datas\HongLouMeng\082.txt" />
+    <Content Include="Datas\HongLouMeng\083.txt" />
+    <Content Include="Datas\HongLouMeng\084.txt" />
+    <Content Include="Datas\HongLouMeng\085.txt" />
+    <Content Include="Datas\HongLouMeng\086.txt" />
+    <Content Include="Datas\HongLouMeng\087.txt" />
+    <Content Include="Datas\HongLouMeng\088.txt" />
+    <Content Include="Datas\HongLouMeng\089.txt" />
+    <Content Include="Datas\HongLouMeng\090.txt" />
+    <Content Include="Datas\HongLouMeng\091.txt" />
+    <Content Include="Datas\HongLouMeng\092.txt" />
+    <Content Include="Datas\HongLouMeng\093.txt" />
+    <Content Include="Datas\HongLouMeng\094.txt" />
+    <Content Include="Datas\HongLouMeng\095.txt" />
+    <Content Include="Datas\HongLouMeng\096.txt" />
+    <Content Include="Datas\HongLouMeng\097.txt" />
+    <Content Include="Datas\HongLouMeng\098.txt" />
+    <Content Include="Datas\HongLouMeng\099.txt" />
+    <Content Include="Datas\HongLouMeng\100.txt" />
+    <Content Include="Datas\HongLouMeng\101.txt" />
+    <Content Include="Datas\HongLouMeng\102.txt" />
+    <Content Include="Datas\HongLouMeng\103.txt" />
+    <Content Include="Datas\HongLouMeng\104.txt" />
+    <Content Include="Datas\HongLouMeng\105.txt" />
+    <Content Include="Datas\HongLouMeng\106.txt" />
+    <Content Include="Datas\HongLouMeng\107.txt" />
+    <Content Include="Datas\HongLouMeng\108.txt" />
+    <Content Include="Datas\HongLouMeng\109.txt" />
+    <Content Include="Datas\HongLouMeng\110.txt" />
+    <Content Include="Datas\HongLouMeng\111.txt" />
+    <Content Include="Datas\HongLouMeng\112.txt" />
+    <Content Include="Datas\HongLouMeng\113.txt" />
+    <Content Include="Datas\HongLouMeng\114.txt" />
+    <Content Include="Datas\HongLouMeng\115.txt" />
+    <Content Include="Datas\HongLouMeng\116.txt" />
+    <Content Include="Datas\HongLouMeng\117.txt" />
+    <Content Include="Datas\HongLouMeng\118.txt" />
+    <Content Include="Datas\HongLouMeng\119.txt" />
+    <Content Include="Datas\HongLouMeng\120.txt" />
+    <Content Include="Datas\SanGuoYanYi.jpg" />
+    <Content Include="Datas\SanGuoYanYi.xml" />
+    <Content Include="Datas\SanGuoYanYi\001.txt" />
+    <Content Include="Datas\SanGuoYanYi\002.txt" />
+    <Content Include="Datas\SanGuoYanYi\003.txt" />
+    <Content Include="Datas\SanGuoYanYi\004.txt" />
+    <Content Include="Datas\SanGuoYanYi\005.txt" />
+    <Content Include="Datas\SanGuoYanYi\006.txt" />
+    <Content Include="Datas\SanGuoYanYi\007.txt" />
+    <Content Include="Datas\SanGuoYanYi\008.txt" />
+    <Content Include="Datas\SanGuoYanYi\009.txt" />
+    <Content Include="Datas\SanGuoYanYi\010.txt" />
+    <Content Include="Datas\SanGuoYanYi\011.txt" />
+    <Content Include="Datas\SanGuoYanYi\012.txt" />
+    <Content Include="Datas\SanGuoYanYi\013.txt" />
+    <Content Include="Datas\SanGuoYanYi\014.txt" />
+    <Content Include="Datas\SanGuoYanYi\015.txt" />
+    <Content Include="Datas\SanGuoYanYi\016.txt" />
+    <Content Include="Datas\SanGuoYanYi\017.txt" />
+    <Content Include="Datas\SanGuoYanYi\018.txt" />
+    <Content Include="Datas\SanGuoYanYi\019.txt" />
+    <Content Include="Datas\SanGuoYanYi\020.txt" />
+    <Content Include="Datas\SanGuoYanYi\021.txt" />
+    <Content Include="Datas\SanGuoYanYi\022.txt" />
+    <Content Include="Datas\SanGuoYanYi\023.txt" />
+    <Content Include="Datas\SanGuoYanYi\024.txt" />
+    <Content Include="Datas\SanGuoYanYi\025.txt" />
+    <Content Include="Datas\SanGuoYanYi\026.txt" />
+    <Content Include="Datas\SanGuoYanYi\027.txt" />
+    <Content Include="Datas\SanGuoYanYi\028.txt" />
+    <Content Include="Datas\SanGuoYanYi\029.txt" />
+    <Content Include="Datas\SanGuoYanYi\030.txt" />
+    <Content Include="Datas\SanGuoYanYi\031.txt" />
+    <Content Include="Datas\SanGuoYanYi\032.txt" />
+    <Content Include="Datas\SanGuoYanYi\033.txt" />
+    <Content Include="Datas\SanGuoYanYi\034.txt" />
+    <Content Include="Datas\SanGuoYanYi\035.txt" />
+    <Content Include="Datas\SanGuoYanYi\036.txt" />
+    <Content Include="Datas\SanGuoYanYi\037.txt" />
+    <Content Include="Datas\SanGuoYanYi\038.txt" />
+    <Content Include="Datas\SanGuoYanYi\039.txt" />
+    <Content Include="Datas\SanGuoYanYi\040.txt" />
+    <Content Include="Datas\SanGuoYanYi\041.txt" />
+    <Content Include="Datas\SanGuoYanYi\042.txt" />
+    <Content Include="Datas\SanGuoYanYi\043.txt" />
+    <Content Include="Datas\SanGuoYanYi\044.txt" />
+    <Content Include="Datas\SanGuoYanYi\045.txt" />
+    <Content Include="Datas\SanGuoYanYi\046.txt" />
+    <Content Include="Datas\SanGuoYanYi\047.txt" />
+    <Content Include="Datas\SanGuoYanYi\048.txt" />
+    <Content Include="Datas\SanGuoYanYi\049.txt" />
+    <Content Include="Datas\SanGuoYanYi\050.txt" />
+    <Content Include="Datas\SanGuoYanYi\051.txt" />
+    <Content Include="Datas\SanGuoYanYi\052.txt" />
+    <Content Include="Datas\SanGuoYanYi\053.txt" />
+    <Content Include="Datas\SanGuoYanYi\054.txt" />
+    <Content Include="Datas\SanGuoYanYi\055.txt" />
+    <Content Include="Datas\SanGuoYanYi\056.txt" />
+    <Content Include="Datas\SanGuoYanYi\057.txt" />
+    <Content Include="Datas\SanGuoYanYi\058.txt" />
+    <Content Include="Datas\SanGuoYanYi\059.txt" />
+    <Content Include="Datas\SanGuoYanYi\060.txt" />
+    <Content Include="Datas\SanGuoYanYi\061.txt" />
+    <Content Include="Datas\SanGuoYanYi\062.txt" />
+    <Content Include="Datas\SanGuoYanYi\063.txt" />
+    <Content Include="Datas\SanGuoYanYi\064.txt" />
+    <Content Include="Datas\SanGuoYanYi\065.txt" />
+    <Content Include="Datas\SanGuoYanYi\066.txt" />
+    <Content Include="Datas\SanGuoYanYi\067.txt" />
+    <Content Include="Datas\SanGuoYanYi\068.txt" />
+    <Content Include="Datas\SanGuoYanYi\069.txt" />
+    <Content Include="Datas\SanGuoYanYi\070.txt" />
+    <Content Include="Datas\SanGuoYanYi\071.txt" />
+    <Content Include="Datas\SanGuoYanYi\072.txt" />
+    <Content Include="Datas\SanGuoYanYi\073.txt" />
+    <Content Include="Datas\SanGuoYanYi\074.txt" />
+    <Content Include="Datas\SanGuoYanYi\075.txt" />
+    <Content Include="Datas\SanGuoYanYi\076.txt" />
+    <Content Include="Datas\SanGuoYanYi\077.txt" />
+    <Content Include="Datas\SanGuoYanYi\078.txt" />
+    <Content Include="Datas\SanGuoYanYi\079.txt" />
+    <Content Include="Datas\SanGuoYanYi\080.txt" />
+    <Content Include="Datas\SanGuoYanYi\081.txt" />
+    <Content Include="Datas\SanGuoYanYi\082.txt" />
+    <Content Include="Datas\SanGuoYanYi\083.txt" />
+    <Content Include="Datas\SanGuoYanYi\084.txt" />
+    <Content Include="Datas\SanGuoYanYi\085.txt" />
+    <Content Include="Datas\SanGuoYanYi\086.txt" />
+    <Content Include="Datas\SanGuoYanYi\087.txt" />
+    <Content Include="Datas\SanGuoYanYi\088.txt" />
+    <Content Include="Datas\SanGuoYanYi\089.txt" />
+    <Content Include="Datas\SanGuoYanYi\090.txt" />
+    <Content Include="Datas\SanGuoYanYi\091.txt" />
+    <Content Include="Datas\SanGuoYanYi\092.txt" />
+    <Content Include="Datas\SanGuoYanYi\093.txt" />
+    <Content Include="Datas\SanGuoYanYi\094.txt" />
+    <Content Include="Datas\SanGuoYanYi\095.txt" />
+    <Content Include="Datas\SanGuoYanYi\096.txt" />
+    <Content Include="Datas\SanGuoYanYi\097.txt" />
+    <Content Include="Datas\SanGuoYanYi\098.txt" />
+    <Content Include="Datas\SanGuoYanYi\099.txt" />
+    <Content Include="Datas\SanGuoYanYi\100.txt" />
+    <Content Include="Datas\SanGuoYanYi\101.txt" />
+    <Content Include="Datas\SanGuoYanYi\102.txt" />
+    <Content Include="Datas\SanGuoYanYi\103.txt" />
+    <Content Include="Datas\SanGuoYanYi\104.txt" />
+    <Content Include="Datas\SanGuoYanYi\105.txt" />
+    <Content Include="Datas\SanGuoYanYi\106.txt" />
+    <Content Include="Datas\SanGuoYanYi\107.txt" />
+    <Content Include="Datas\SanGuoYanYi\108.txt" />
+    <Content Include="Datas\SanGuoYanYi\109.txt" />
+    <Content Include="Datas\SanGuoYanYi\110.txt" />
+    <Content Include="Datas\SanGuoYanYi\111.txt" />
+    <Content Include="Datas\SanGuoYanYi\112.txt" />
+    <Content Include="Datas\SanGuoYanYi\113.txt" />
+    <Content Include="Datas\SanGuoYanYi\114.txt" />
+    <Content Include="Datas\SanGuoYanYi\115.txt" />
+    <Content Include="Datas\SanGuoYanYi\116.txt" />
+    <Content Include="Datas\SanGuoYanYi\117.txt" />
+    <Content Include="Datas\SanGuoYanYi\118.txt" />
+    <Content Include="Datas\SanGuoYanYi\119.txt" />
+    <Content Include="Datas\SanGuoYanYi\120.txt" />
+    <Content Include="Datas\ShuiHuZhuan.jpg" />
+    <Content Include="Datas\ShuiHuZhuan.xml" />
+    <Content Include="Datas\ShuiHuZhuan\000.txt" />
+    <Content Include="Datas\ShuiHuZhuan\001.txt" />
+    <Content Include="Datas\ShuiHuZhuan\002.txt" />
+    <Content Include="Datas\ShuiHuZhuan\003.txt" />
+    <Content Include="Datas\ShuiHuZhuan\004.txt" />
+    <Content Include="Datas\ShuiHuZhuan\005.txt" />
+    <Content Include="Datas\ShuiHuZhuan\006.txt" />
+    <Content Include="Datas\ShuiHuZhuan\007.txt" />
+    <Content Include="Datas\ShuiHuZhuan\008.txt" />
+    <Content Include="Datas\ShuiHuZhuan\009.txt" />
+    <Content Include="Datas\ShuiHuZhuan\010.txt" />
+    <Content Include="Datas\ShuiHuZhuan\011.txt" />
+    <Content Include="Datas\ShuiHuZhuan\012.txt" />
+    <Content Include="Datas\ShuiHuZhuan\013.txt" />
+    <Content Include="Datas\ShuiHuZhuan\014.txt" />
+    <Content Include="Datas\ShuiHuZhuan\015.txt" />
+    <Content Include="Datas\ShuiHuZhuan\016.txt" />
+    <Content Include="Datas\ShuiHuZhuan\017.txt" />
+    <Content Include="Datas\ShuiHuZhuan\018.txt" />
+    <Content Include="Datas\ShuiHuZhuan\019.txt" />
+    <Content Include="Datas\ShuiHuZhuan\020.txt" />
+    <Content Include="Datas\ShuiHuZhuan\021.txt" />
+    <Content Include="Datas\ShuiHuZhuan\022.txt" />
+    <Content Include="Datas\ShuiHuZhuan\023.txt" />
+    <Content Include="Datas\ShuiHuZhuan\024.txt" />
+    <Content Include="Datas\ShuiHuZhuan\025.txt" />
+    <Content Include="Datas\ShuiHuZhuan\026.txt" />
+    <Content Include="Datas\ShuiHuZhuan\027.txt" />
+    <Content Include="Datas\ShuiHuZhuan\028.txt" />
+    <Content Include="Datas\ShuiHuZhuan\029.txt" />
+    <Content Include="Datas\ShuiHuZhuan\030.txt" />
+    <Content Include="Datas\ShuiHuZhuan\031.txt" />
+    <Content Include="Datas\ShuiHuZhuan\032.txt" />
+    <Content Include="Datas\ShuiHuZhuan\033.txt" />
+    <Content Include="Datas\ShuiHuZhuan\034.txt" />
+    <Content Include="Datas\ShuiHuZhuan\035.txt" />
+    <Content Include="Datas\ShuiHuZhuan\036.txt" />
+    <Content Include="Datas\ShuiHuZhuan\037.txt" />
+    <Content Include="Datas\ShuiHuZhuan\038.txt" />
+    <Content Include="Datas\ShuiHuZhuan\039.txt" />
+    <Content Include="Datas\ShuiHuZhuan\040.txt" />
+    <Content Include="Datas\ShuiHuZhuan\041.txt" />
+    <Content Include="Datas\ShuiHuZhuan\042.txt" />
+    <Content Include="Datas\ShuiHuZhuan\043.txt" />
+    <Content Include="Datas\ShuiHuZhuan\044.txt" />
+    <Content Include="Datas\ShuiHuZhuan\045.txt" />
+    <Content Include="Datas\ShuiHuZhuan\046.txt" />
+    <Content Include="Datas\ShuiHuZhuan\047.txt" />
+    <Content Include="Datas\ShuiHuZhuan\048.txt" />
+    <Content Include="Datas\ShuiHuZhuan\049.txt" />
+    <Content Include="Datas\ShuiHuZhuan\050.txt" />
+    <Content Include="Datas\ShuiHuZhuan\051.txt" />
+    <Content Include="Datas\ShuiHuZhuan\052.txt" />
+    <Content Include="Datas\ShuiHuZhuan\053.txt" />
+    <Content Include="Datas\ShuiHuZhuan\054.txt" />
+    <Content Include="Datas\ShuiHuZhuan\055.txt" />
+    <Content Include="Datas\ShuiHuZhuan\056.txt" />
+    <Content Include="Datas\ShuiHuZhuan\057.txt" />
+    <Content Include="Datas\ShuiHuZhuan\058.txt" />
+    <Content Include="Datas\ShuiHuZhuan\059.txt" />
+    <Content Include="Datas\ShuiHuZhuan\060.txt" />
+    <Content Include="Datas\ShuiHuZhuan\061.txt" />
+    <Content Include="Datas\ShuiHuZhuan\062.txt" />
+    <Content Include="Datas\ShuiHuZhuan\063.txt" />
+    <Content Include="Datas\ShuiHuZhuan\064.txt" />
+    <Content Include="Datas\ShuiHuZhuan\065.txt" />
+    <Content Include="Datas\ShuiHuZhuan\066.txt" />
+    <Content Include="Datas\ShuiHuZhuan\067.txt" />
+    <Content Include="Datas\ShuiHuZhuan\068.txt" />
+    <Content Include="Datas\ShuiHuZhuan\069.txt" />
+    <Content Include="Datas\ShuiHuZhuan\070.txt" />
+    <Content Include="Datas\ShuiHuZhuan\071.txt" />
+    <Content Include="Datas\ShuiHuZhuan\072.txt" />
+    <Content Include="Datas\ShuiHuZhuan\073.txt" />
+    <Content Include="Datas\ShuiHuZhuan\074.txt" />
+    <Content Include="Datas\ShuiHuZhuan\075.txt" />
+    <Content Include="Datas\ShuiHuZhuan\076.txt" />
+    <Content Include="Datas\ShuiHuZhuan\077.txt" />
+    <Content Include="Datas\ShuiHuZhuan\078.txt" />
+    <Content Include="Datas\ShuiHuZhuan\079.txt" />
+    <Content Include="Datas\ShuiHuZhuan\080.txt" />
+    <Content Include="Datas\ShuiHuZhuan\081.txt" />
+    <Content Include="Datas\ShuiHuZhuan\082.txt" />
+    <Content Include="Datas\ShuiHuZhuan\083.txt" />
+    <Content Include="Datas\ShuiHuZhuan\084.txt" />
+    <Content Include="Datas\ShuiHuZhuan\085.txt" />
+    <Content Include="Datas\ShuiHuZhuan\086.txt" />
+    <Content Include="Datas\ShuiHuZhuan\087.txt" />
+    <Content Include="Datas\ShuiHuZhuan\088.txt" />
+    <Content Include="Datas\ShuiHuZhuan\089.txt" />
+    <Content Include="Datas\ShuiHuZhuan\090.txt" />
+    <Content Include="Datas\ShuiHuZhuan\091.txt" />
+    <Content Include="Datas\ShuiHuZhuan\092.txt" />
+    <Content Include="Datas\ShuiHuZhuan\093.txt" />
+    <Content Include="Datas\ShuiHuZhuan\094.txt" />
+    <Content Include="Datas\ShuiHuZhuan\095.txt" />
+    <Content Include="Datas\ShuiHuZhuan\096.txt" />
+    <Content Include="Datas\ShuiHuZhuan\097.txt" />
+    <Content Include="Datas\ShuiHuZhuan\098.txt" />
+    <Content Include="Datas\ShuiHuZhuan\099.txt" />
+    <Content Include="Datas\ShuiHuZhuan\100.txt" />
+    <Content Include="Datas\ShuiHuZhuan\101.txt" />
+    <Content Include="Datas\ShuiHuZhuan\102.txt" />
+    <Content Include="Datas\ShuiHuZhuan\103.txt" />
+    <Content Include="Datas\ShuiHuZhuan\104.txt" />
+    <Content Include="Datas\ShuiHuZhuan\105.txt" />
+    <Content Include="Datas\ShuiHuZhuan\106.txt" />
+    <Content Include="Datas\ShuiHuZhuan\107.txt" />
+    <Content Include="Datas\ShuiHuZhuan\108.txt" />
+    <Content Include="Datas\ShuiHuZhuan\109.txt" />
+    <Content Include="Datas\ShuiHuZhuan\110.txt" />
+    <Content Include="Datas\ShuiHuZhuan\111.txt" />
+    <Content Include="Datas\ShuiHuZhuan\112.txt" />
+    <Content Include="Datas\ShuiHuZhuan\113.txt" />
+    <Content Include="Datas\ShuiHuZhuan\114.txt" />
+    <Content Include="Datas\ShuiHuZhuan\115.txt" />
+    <Content Include="Datas\ShuiHuZhuan\116.txt" />
+    <Content Include="Datas\ShuiHuZhuan\117.txt" />
+    <Content Include="Datas\ShuiHuZhuan\118.txt" />
+    <Content Include="Datas\ShuiHuZhuan\119.txt" />
+    <Content Include="Datas\ShuiHuZhuan\120.txt" />
+    <Content Include="Datas\XiYouJi.jpg" />
+    <Content Include="Datas\XiYouJi.xml" />
+    <Content Include="Datas\XiYouJi\001.txt" />
+    <Content Include="Datas\XiYouJi\002.txt" />
+    <Content Include="Datas\XiYouJi\003.txt" />
+    <Content Include="Datas\XiYouJi\004.txt" />
+    <Content Include="Datas\XiYouJi\005.txt" />
+    <Content Include="Datas\XiYouJi\006.txt" />
+    <Content Include="Datas\XiYouJi\007.txt" />
+    <Content Include="Datas\XiYouJi\008.txt" />
+    <Content Include="Datas\XiYouJi\009.txt" />
+    <Content Include="Datas\XiYouJi\010.txt" />
+    <Content Include="Datas\XiYouJi\011.txt" />
+    <Content Include="Datas\XiYouJi\012.txt" />
+    <Content Include="Datas\XiYouJi\013.txt" />
+    <Content Include="Datas\XiYouJi\014.txt" />
+    <Content Include="Datas\XiYouJi\015.txt" />
+    <Content Include="Datas\XiYouJi\016.txt" />
+    <Content Include="Datas\XiYouJi\017.txt" />
+    <Content Include="Datas\XiYouJi\018.txt" />
+    <Content Include="Datas\XiYouJi\019.txt" />
+    <Content Include="Datas\XiYouJi\020.txt" />
+    <Content Include="Datas\XiYouJi\021.txt" />
+    <Content Include="Datas\XiYouJi\022.txt" />
+    <Content Include="Datas\XiYouJi\023.txt" />
+    <Content Include="Datas\XiYouJi\024.txt" />
+    <Content Include="Datas\XiYouJi\025.txt" />
+    <Content Include="Datas\XiYouJi\026.txt" />
+    <Content Include="Datas\XiYouJi\027.txt" />
+    <Content Include="Datas\XiYouJi\028.txt" />
+    <Content Include="Datas\XiYouJi\029.txt" />
+    <Content Include="Datas\XiYouJi\030.txt" />
+    <Content Include="Datas\XiYouJi\031.txt" />
+    <Content Include="Datas\XiYouJi\032.txt" />
+    <Content Include="Datas\XiYouJi\033.txt" />
+    <Content Include="Datas\XiYouJi\034.txt" />
+    <Content Include="Datas\XiYouJi\035.txt" />
+    <Content Include="Datas\XiYouJi\036.txt" />
+    <Content Include="Datas\XiYouJi\037.txt" />
+    <Content Include="Datas\XiYouJi\038.txt" />
+    <Content Include="Datas\XiYouJi\039.txt" />
+    <Content Include="Datas\XiYouJi\040.txt" />
+    <Content Include="Datas\XiYouJi\041.txt" />
+    <Content Include="Datas\XiYouJi\042.txt" />
+    <Content Include="Datas\XiYouJi\043.txt" />
+    <Content Include="Datas\XiYouJi\044.txt" />
+    <Content Include="Datas\XiYouJi\045.txt" />
+    <Content Include="Datas\XiYouJi\046.txt" />
+    <Content Include="Datas\XiYouJi\047.txt" />
+    <Content Include="Datas\XiYouJi\048.txt" />
+    <Content Include="Datas\XiYouJi\049.txt" />
+    <Content Include="Datas\XiYouJi\050.txt" />
+    <Content Include="Datas\XiYouJi\051.txt" />
+    <Content Include="Datas\XiYouJi\052.txt" />
+    <Content Include="Datas\XiYouJi\053.txt" />
+    <Content Include="Datas\XiYouJi\054.txt" />
+    <Content Include="Datas\XiYouJi\055.txt" />
+    <Content Include="Datas\XiYouJi\056.txt" />
+    <Content Include="Datas\XiYouJi\057.txt" />
+    <Content Include="Datas\XiYouJi\058.txt" />
+    <Content Include="Datas\XiYouJi\059.txt" />
+    <Content Include="Datas\XiYouJi\060.txt" />
+    <Content Include="Datas\XiYouJi\061.txt" />
+    <Content Include="Datas\XiYouJi\062.txt" />
+    <Content Include="Datas\XiYouJi\063.txt" />
+    <Content Include="Datas\XiYouJi\064.txt" />
+    <Content Include="Datas\XiYouJi\065.txt" />
+    <Content Include="Datas\XiYouJi\066.txt" />
+    <Content Include="Datas\XiYouJi\067.txt" />
+    <Content Include="Datas\XiYouJi\068.txt" />
+    <Content Include="Datas\XiYouJi\069.txt" />
+    <Content Include="Datas\XiYouJi\070.txt" />
+    <Content Include="Datas\XiYouJi\071.txt" />
+    <Content Include="Datas\XiYouJi\072.txt" />
+    <Content Include="Datas\XiYouJi\073.txt" />
+    <Content Include="Datas\XiYouJi\074.txt" />
+    <Content Include="Datas\XiYouJi\075.txt" />
+    <Content Include="Datas\XiYouJi\076.txt" />
+    <Content Include="Datas\XiYouJi\077.txt" />
+    <Content Include="Datas\XiYouJi\078.txt" />
+    <Content Include="Datas\XiYouJi\079.txt" />
+    <Content Include="Datas\XiYouJi\080.txt" />
+    <Content Include="Datas\XiYouJi\081.txt" />
+    <Content Include="Datas\XiYouJi\082.txt" />
+    <Content Include="Datas\XiYouJi\083.txt" />
+    <Content Include="Datas\XiYouJi\084.txt" />
+    <Content Include="Datas\XiYouJi\085.txt" />
+    <Content Include="Datas\XiYouJi\086.txt" />
+    <Content Include="Datas\XiYouJi\087.txt" />
+    <Content Include="Datas\XiYouJi\088.txt" />
+    <Content Include="Datas\XiYouJi\089.txt" />
+    <Content Include="Datas\XiYouJi\090.txt" />
+    <Content Include="Datas\XiYouJi\091.txt" />
+    <Content Include="Datas\XiYouJi\092.txt" />
+    <Content Include="Datas\XiYouJi\093.txt" />
+    <Content Include="Datas\XiYouJi\094.txt" />
+    <Content Include="Datas\XiYouJi\095.txt" />
+    <Content Include="Datas\XiYouJi\096.txt" />
+    <Content Include="Datas\XiYouJi\097.txt" />
+    <Content Include="Datas\XiYouJi\098.txt" />
+    <Content Include="Datas\XiYouJi\099.txt" />
+    <Content Include="Datas\XiYouJi\100.txt" />
+    <Content Include="Datas\XiYouJi\101.txt" />
+    <Content Include="icons\appbar.back.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.favs.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.next.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\logo.jpg" />
+    <Resource Include="Images\bg3.jpg" />
+    <Resource Include="Images\bg4.jpg" />
+    <Resource Include="Images\bg5.jpg" />
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bookmark.png" />
+    <Content Include="icons\list.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="icons\appbar.next.rest.light.png" />
+    <Resource Include="Images\bg1.jpg" />
+    <Resource Include="Images\bg2.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

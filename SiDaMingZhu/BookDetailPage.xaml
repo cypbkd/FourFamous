@@ -1,0 +1,162 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:converter="clr-namespace:SiDaMingZhu.Converters"
+    xmlns:Coding4Fun_Phone_Controls="clr-namespace:Coding4Fun.Phone.Controls;assembly=Coding4Fun.Phone.Controls"
+    xmlns:Coding4Fun_Phone_Controls_Converters="clr-namespace:Coding4Fun.Phone.Controls.Converters;assembly=Coding4Fun.Phone.Controls"
+    x:Class="SiDaMingZhu.BookDetailPage" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="false" Background="Black">
+
+    <phone:PhoneApplicationPage.Resources>
+    	<Coding4Fun_Phone_Controls_Converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    	<converter:SubStringConverter x:Key="SubStringConverter"/>
+    	<converter:BookImageConverter x:Key="BookImageConverter"/>
+    	<converter:ChapterIdToNameConverter x:Key="ChapterIdToNameConverter"/>
+    	<converter:DateTimeConverter x:Key="DateTimeConverter"/>
+    	<converter:ChapterNameConverter x:Key="ChapterNameConverter"/>
+    	<DataTemplate x:Key="UrlNameTemplate">
+    		<Border BorderThickness="10,0,0,0"  Width="440" Height="84" Margin="0,0,0,12" Background="{StaticResource MyGrayBackBrush}">
+    				<Border.BorderBrush>
+    					<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+    				</Border.BorderBrush>
+    		<StackPanel  toolkit:TiltEffect.IsTiltEnabled="True" Orientation="Horizontal" Tap="StackPanel_Tap" Margin="12">    			
+				<TextBlock TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="Black" Text="{Binding Count, Converter={StaticResource ChapterNameConverter}}" />
+    			<TextBlock Text="{Binding Name}" VerticalAlignment="Center" Width="330" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Foreground="Black" Margin="12,0,0,0" />
+    		</StackPanel>
+			</Border>
+    	</DataTemplate>
+    	<DataTemplate x:Key="BookMarkTemplate">    				
+    		<Border BorderThickness="0,2,0,0" Margin="0,0,0,12" Padding="12" Background="{StaticResource MyGrayBackBrush}" >
+    					<Border.BorderBrush>
+    						<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+    					</Border.BorderBrush>
+    			<StackPanel toolkit:TiltEffect.IsTiltEnabled="True" Tap="BookMark_Tap" VerticalAlignment="Top" d:LayoutOverrides="Width">
+    				<toolkit:ContextMenuService.ContextMenu>
+	                    <toolkit:ContextMenu Background="#9FB4B4B4" BorderBrush="{x:Null}" Foreground="Black">
+	                        <toolkit:MenuItem Header="删除" Click="Del_Click"/>
+	                    </toolkit:ContextMenu>
+	                </toolkit:ContextMenuService.ContextMenu>
+					<Grid Height="27" Width="480">
+    					<Grid.ColumnDefinitions>
+    						<ColumnDefinition Width="0.612*"/>
+    						<ColumnDefinition Width="0.388*"/>
+    					</Grid.ColumnDefinitions>
+    					<TextBlock TextWrapping="Wrap" Text="{Binding ChapterId, Converter={StaticResource ChapterIdToNameConverter}}" FontSize="{StaticResource PhoneFontSizeNormal}" Margin="8,0,0,0" HorizontalAlignment="Left" d:LayoutOverrides="Height">
+    						<TextBlock.Foreground>
+    							<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+    						</TextBlock.Foreground>
+    					</TextBlock>
+    					<TextBlock TextWrapping="Wrap" Text="{Binding AddTime, Converter={StaticResource DateTimeConverter}}" Grid.Column="1" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-1" >
+    						<TextBlock.Foreground>
+    							<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+    						</TextBlock.Foreground>
+    					</TextBlock>
+    				</Grid>
+    				<TextBlock TextWrapping="Wrap" Text="{Binding Content}" FontSize="{StaticResource PhoneFontSizeMedium}" Margin="12,3" HorizontalAlignment="Left" Foreground="Black"/>
+    			</StackPanel>
+			</Border>
+    	</DataTemplate>   
+	</phone:PhoneApplicationPage.Resources>
+    
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    
+	<phone:PhoneApplicationPage.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</phone:PhoneApplicationPage.FontFamily>
+	<phone:PhoneApplicationPage.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</phone:PhoneApplicationPage.FontSize>
+	<phone:PhoneApplicationPage.Foreground>
+		<StaticResource ResourceKey="PhoneForegroundBrush"/>
+	</phone:PhoneApplicationPage.Foreground>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+<!--枢轴控件-->
+        <controls:Pivot Title="四大名著" x:Name="MyPivot" Foreground="Black" Background="{StaticResource CommanBackground}">
+            <!--枢轴项一-->
+        	<controls:PivotItem Header="书籍介绍">
+        		<Grid>
+        			<Grid.RowDefinitions>
+        				<RowDefinition Height="0.463*"/>
+        				<RowDefinition Height="0.537*"/>
+        			</Grid.RowDefinitions>
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition Width="0.428*"/>
+        				<ColumnDefinition Width="0.572*"/>
+        			</Grid.ColumnDefinitions>
+                    <Image Margin="8" Source="{Binding BookDetail.Id, Converter={StaticResource BookImageConverter}}" Stretch="Uniform"/>
+        			<StackPanel Grid.Column="1" Margin="8">					
+        				<Border BorderThickness="0,0,0,1" BorderBrush="{StaticResource MyDark}">
+                            <TextBlock TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeLarge}" Margin="{StaticResource PhoneBorderThickness}">
+								<Run Text="{Binding BookDetail.Title}"/><Run FontSize="{StaticResource PhoneFontSizeNormal}" Text="["/><Run FontSize="{StaticResource PhoneFontSizeNormal}" Text="{Binding BookDetail.Author}"/><Run FontSize="{StaticResource PhoneFontSizeNormal}" Text="]"/>
+        						<TextBlock.Foreground>
+        							<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+        						</TextBlock.Foreground>
+							</TextBlock>
+        				</Border>
+                        <TextBlock TextWrapping="Wrap" Text="{Binding BookDetail.Detail}" Margin="0,10,0,0" Foreground="#FF3D3D3D" FontSize="17.333"/>
+        			</StackPanel>
+                    <StackPanel Margin="8" Grid.Row="1" Grid.ColumnSpan="2" Tap="BookMark_Tap">
+    				    <StackPanel Orientation="Horizontal">
+    				    	<Image Source="icons/appbar.next.rest.light.png" Opacity="0.995" />
+    				    	<TextBlock TextWrapping="Wrap" Text="继续上次阅读" Foreground="Black" VerticalAlignment="Center" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+    				    </StackPanel>
+    				    <Border BorderThickness="0,2,0,0" Background="#47C4C4C4" Padding="{StaticResource PhoneTouchTargetOverhang}">
+    				    	<Border.BorderBrush>
+    				    		<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+    				    	</Border.BorderBrush>
+                            <TextBlock TextWrapping="Wrap"  Text="{Binding BookDetail.LastRead.Content, Converter={StaticResource SubStringConverter}}" Foreground="Black" FontSize="{StaticResource PhoneFontSizeNormal}" LineHeight="26.667" FontFamily="Segoe WP Light"/>
+    				    </Border>
+        			</StackPanel>
+        		</Grid>
+        	</controls:PivotItem>
+        	<controls:PivotItem Header="章节列表">
+        		<Grid>
+        			<ListBox ItemTemplate="{StaticResource UrlNameTemplate}" ItemsSource="{Binding ChapterList}"/>
+        		</Grid>
+        	</controls:PivotItem>
+
+            <!--枢轴项二-->
+        	<controls:PivotItem Header="书签列表">
+        		<Grid>
+        			<Grid.RowDefinitions>
+        				<RowDefinition Height="0.12*"/>
+        				<RowDefinition Height="0.88*"/>
+        			</Grid.RowDefinitions>
+        			<ListBox ItemTemplate="{StaticResource BookMarkTemplate}" ItemsSource="{Binding BookMarkList}" Grid.RowSpan="2"/>
+        			<TextBlock TextWrapping="Wrap" Text="暂无书签，轻触书籍右上角添加." Margin="12" HorizontalAlignment="Center" FontStyle="Italic" Foreground="#4D000000" Visibility="{Binding IsBookMarkShow, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        		</Grid>
+        	</controls:PivotItem>
+        </controls:Pivot>
+<!--枢轴控件-->
+        <!--枢轴控件-->
+    </Grid>
+    
+</phone:PhoneApplicationPage>

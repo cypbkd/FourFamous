@@ -1,0 +1,22 @@
+﻿<Application
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	x:Class="SiDaMingZhu.App">
+	<Application.Resources>
+		<SolidColorBrush x:Key="MyGrayBackBrush" Color="#67C4C4C4"/>
+		<SolidColorBrush x:Key="MyDark" Color="#FF767676"/>
+		<SolidColorBrush x:Key="WhiteAlphaBrush" Color="#67C4C4C4"/>
+		<ImageBrush x:Key="CommanBackground" Stretch="None" ImageSource="Images/bg2.jpg"/>
+	</Application.Resources>
+
+	<!--应用程序资源-->
+
+	<Application.ApplicationLifetimeObjects>
+		<!--处理应用程序的生存期事件所需的对象-->
+		<shell:PhoneApplicationService 
+			Launching="Application_Launching" Closing="Application_Closing" 
+			Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+	</Application.ApplicationLifetimeObjects>
+</Application>

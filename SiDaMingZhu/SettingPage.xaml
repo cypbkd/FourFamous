@@ -1,0 +1,101 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
+    x:Class="SiDaMingZhu.SettingPage"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="false">
+	
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideRightFadeIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideRightFadeOut"/>
+            </toolkit:NavigationOutTransition.Backward> 
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+	
+	<phone:PhoneApplicationPage.Resources>
+		<DataTemplate x:Key="HeaderTemplate">
+			<StackPanel >
+				<TextBlock Text="{Binding }" >
+					<TextBlock.Foreground>
+					<SolidColorBrush Color="#FF393939"/>
+				</TextBlock.Foreground>
+					</TextBlock>
+			</StackPanel>
+		</DataTemplate>
+		<DataTemplate x:Key="ItemTemplate">
+			<StackPanel>
+				<TextBlock TextWrapping="Wrap" Text="{Binding }"/>
+			</StackPanel>
+		</DataTemplate>
+	</phone:PhoneApplicationPage.Resources>
+	<phone:PhoneApplicationPage.Background>
+		<ImageBrush Stretch="Fill"/>
+	</phone:PhoneApplicationPage.Background>
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="{StaticResource CommanBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel 包含应用程序的名称和页标题-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="四大名著" Style="{StaticResource PhoneTextNormalStyle}" Foreground="Black"/>
+            <TextBlock x:Name="PageTitle" Text="设置" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="Black"/>
+        </StackPanel>
+        <ScrollViewer Margin="12,0,12,0" Grid.Row="1">
+        <StackPanel x:Name="ContentPanel" >
+            <toolkit:ListPicker Margin="{StaticResource PhoneTouchTargetOverhang}" Header="字体大小" Background="{StaticResource MyGrayBackBrush}" HeaderTemplate="{StaticResource HeaderTemplate}" ItemsSource="{Binding FontSizeSets}" SelectedIndex="{Binding FontSizeIndex, Mode=TwoWay}" ItemTemplate="{StaticResource ItemTemplate}">
+            	<toolkit:ListPicker.BorderBrush>
+            		<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+            	</toolkit:ListPicker.BorderBrush>
+            </toolkit:ListPicker>
+            <toolkit:ListPicker Margin="{StaticResource PhoneTouchTargetOverhang}" Header="行间距" Background="{StaticResource MyGrayBackBrush}" HeaderTemplate="{StaticResource HeaderTemplate}" ItemsSource="{Binding LineHeightSets}" SelectedIndex="{Binding LineHeightIndex, Mode=TwoWay}"  ItemTemplate="{StaticResource ItemTemplate}">
+            	<toolkit:ListPicker.BorderBrush>
+            		<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+            	</toolkit:ListPicker.BorderBrush>
+            </toolkit:ListPicker>
+            <TextBlock TextWrapping="Wrap" Text="预览" Margin="12,12,0,0">
+				<TextBlock.Foreground>
+					<SolidColorBrush Color="#FF393939"/>
+				</TextBlock.Foreground>
+			</TextBlock>
+			<Border Height="268" BorderThickness="0,2,0,0" Padding="12" Margin="{StaticResource PhoneTouchTargetOverhang}" Background="{StaticResource MyGrayBackBrush}" >
+				<Border.BorderBrush>
+					<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+				</Border.BorderBrush>
+				<TextBlock TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" LineHeight="{Binding LineHeight}" FontSize="{Binding FontSize}" Margin="0,0,-2,0" VerticalAlignment="Top">
+					<TextBlock.Foreground>
+						<SolidColorBrush Color="Black"/>
+					</TextBlock.Foreground><Run Text="        "/><Run Text="怒发冲冠，凭栏处,潇潇雨歇。抬望眼，仰天长啸，壮怀激烈。三十功名尘与土，八千里路云和月。莫等闲，白了少年头，空悲切。"/><LineBreak/><Run Text="        "/><Run Text="靖康耻，犹未雪；臣子恨，何时灭？驾长车，踏破贺兰山缺。壮志饥餐胡虏肉，笑谈渴饮匈奴血。待从头，收拾旧山河，朝天阙！"/></TextBlock>
+			</Border>
+			
+        </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</phone:PhoneApplicationPage>

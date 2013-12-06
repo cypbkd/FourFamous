@@ -1,0 +1,23 @@
+﻿<!--
+      *********    请勿修改此文件     *********
+      此文件由设计工具再生成。更改
+      此文件可能会导致错误。
+-->
+<SampleData:MoreDataSource xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.MoreDataSource" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+  <SampleData:MoreDataSource.Collection>
+    <SampleData:Item Property1="Class nam aliquam" />
+    <SampleData:Item Property1="Curae sed integer cras" />
+    <SampleData:Item Property1="Quisque dis aenean donec" />
+    <SampleData:Item Property1="Duis est" />
+    <SampleData:Item Property1="Mauris vivamus" />
+    <SampleData:Item Property1="Aliquam nullam nunc" />
+    <SampleData:Item Property1="Aliquet etiam blandit fusce" />
+    <SampleData:Item Property1="Commodo maecenas aptent" />
+    <SampleData:Item Property1="Hac auctor conubia" />
+    <SampleData:Item Property1="Leo amet praesent lorem" />
+    <SampleData:Item Property1="Class aenean curae nam" />
+    <SampleData:Item Property1="Cras donec aliquam" />
+    <SampleData:Item Property1="Etiam integer" />
+    <SampleData:Item Property1="Fusce quisque lorem duis" />
+  </SampleData:MoreDataSource.Collection>
+</SampleData:MoreDataSource>

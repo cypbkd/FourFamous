@@ -1,0 +1,76 @@
+﻿<phone:PhoneApplicationPage 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
+	mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+	x:Class="SiDaMingZhu.AboutPage"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	Orientation="Portrait"
+	shell:SystemTray.IsVisible="false">
+	<phone:PhoneApplicationPage.Resources>
+		<SolidColorBrush x:Key="Link" Color="#DE123DEB"/>
+	</phone:PhoneApplicationPage.Resources>
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideRightFadeIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideRightFadeOut"/>
+            </toolkit:NavigationOutTransition.Backward> 
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+	
+	<!--LayoutRoot 是放置所有页面内容的根网格-->
+	<Grid x:Name="LayoutRoot" Background="{StaticResource CommanBackground}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		
+		<!--TitlePanel 包含应用程序名称和页面标题-->
+		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+			<TextBlock x:Name="ApplicationTitle" Text="四大名著" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#DE000000"/>
+			<TextBlock x:Name="PageTitle" Text="关于" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#DE000000"/>
+		</StackPanel>
+		<StackPanel x:Name="ContentPanel" Margin="12,0,12,0" Grid.Row="1" >
+			<StackPanel d:LayoutOverrides="Width">
+				<StackPanel Orientation="Horizontal">
+					<TextBlock TextWrapping="Wrap" Text="联系我们  " FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="#DE000000"/>
+					<HyperlinkButton Content="cyp_bkd@qq.com" Foreground="{StaticResource Link}" FontSize="{StaticResource PhoneFontSizeLarge}" Click="ContactUs_Click" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Margin="0,24,0,0">
+					<TextBlock TextWrapping="Wrap" Text="新浪微博  " FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="#DE000000"/>
+					<HyperlinkButton Content="weibo.com/cypbkd" Foreground="{StaticResource Link}" FontSize="{StaticResource PhoneFontSizeLarge}" Click="Weibo_Click"/>
+				</StackPanel>
+				<StackPanel Orientation="Vertical" Margin="0,24,0,0">
+                    <Button Content="应用推荐" Click="Advice_Click" BorderBrush="#DE000000" Foreground="#DE000000"/>	
+					<Button Content="给我评分" Click="Rate_Click" BorderBrush="#DE000000" Foreground="#DE000000"/>					
+					<Button Content="检查更新" Click="Update_Click" BorderBrush="#DE000000" Foreground="#DE000000" />
+					<Image Height="147" Width="151" Source="Images/logo.jpg" Stretch="Fill"/>
+					<TextBlock TextWrapping="Wrap" Text="四大名著 v1.2" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="#DE000000" HorizontalAlignment="Center" Margin="0,24,0,0"/>					
+				</StackPanel>
+			</StackPanel>
+		</StackPanel>
+		<TextBlock TextWrapping="Wrap" Text="黑鹦鹉工作室 © 2012" FontSize="{StaticResource PhoneFontSizeNormal}" Foreground="{StaticResource MyDark}" VerticalAlignment="Bottom" Margin="8,0,8,8" Grid.Row="1" HorizontalAlignment="Center"/>
+
+		<!--ContentPanel - 在此放置附加内容-->
+	</Grid>
+</phone:PhoneApplicationPage>
